@@ -195,10 +195,10 @@
 
 - 15.1. Интерфейсы: enable/disable, description (LACP не используется)
 - 15.2. NAT Defaults — общие параметры устройства
-  - 15.2.1. **VLAN Mode**: untag / vlan / QinQ — глубина поиска IP-заголовка (всегда QinQ)
+  - 15.2.1. **VLAN Mode**: untagged / vlan / qinq — глубина поиска IP-заголовка (всегда qinq)
   - 15.2.2. Sessions per Translation (по умолчанию 4096)
   - 15.2.3. **Forward Traffic**: всегда ON
-  - 15.2.4. **L2 MTU**: максимум 9216 (по RFC)
+  - 15.2.4. **L2 MTU**: 9216
   - 15.2.5. **LLDP**: выключен (требование операторов — прозрачность)
   - 15.2.6. **Permit Invalid Flow**: всегда ON — приём TCP-сессий без SYN
 - 15.3. Тайм-ауты сессий и трансляций
