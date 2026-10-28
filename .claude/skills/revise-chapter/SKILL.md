@@ -31,4 +31,4 @@ Steps
 5. Run transcript/validate.py. Realign only this chapter's tables.
 6. Report the changes, open questions and new images. Give a git add command with exact paths (docs/, README.md, chapters/ as touched; never -A, transcript/ or .claude/). Don't commit. Update memory: mark the chapter done in the current revision's status note, remove the follow-ups you fixed from tspu-docs-followups, and add new ones there.
 
-Rules: chapters, image file names, alt texts and captions never mention the lecture, lecturer, slides, timestamps or recording, and chapters never mirror the lecture's structure. Keep the Russian typography of the existing chapters (« » quotes, em dashes); the dash ban in /home/dala/CLAUDE.md is for the design kit and does not apply here.
+Rules: chapters, image file names, alt texts and captions never mention the lecture, lecturer, slides, timestamps or recording, and chapters never mirror the lecture's structure. Keep the Russian typography of the existing chapters (« » quotes, em dashes).
