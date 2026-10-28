@@ -20,15 +20,17 @@ transcript/chapter-map.md lists each chapter's transcript ranges and slides. Que
 Steps
 
 1. Read the chapter, its transcript ranges and its slides.
-2. Fix wrong facts, add missing ones, remove invented claims. Keep the chapter's structure and the approved writing rules (one home per fact, headings name topics, neutral version notes). Small edits to other chapters are fine; list them.
+2. Fix wrong facts, add missing ones, remove invented claims. Keep the chapter's structure and the approved writing rules (one home per fact, headings name topics, neutral version notes).
+   - When a fix also applies to other chapters, make it there too. Search docs/ and README.md for every place the wrong fact, name or number appears and fix them all. Add or remove material in another chapter when you know it belongs there: a fact lives in its home chapter, and other chapters link to it instead of repeating it.
+   - Verify each change in another chapter against the slides or transcript, as for your own chapter, and record it under that chapter in transcript/chapter-map.md so its own session knows. List every cross-chapter change in your report.
 3. Images: at most 3 per chapter, only where a picture explains more than text (topologies, packet paths, hardware).
    - Crop the slide to its content: no slide-number badge, no black side bars. Use ffmpeg (`-vf crop=w:h:x:y`) or Pillow through `uv run --no-project --with pillow python -I`. Open the result to check the crop.
    - Save as docs/images/<slug>/<descriptive-name>.png (JPEG for photos), under about 300 KB.
    - Embed like the existing images: <img width="1024" alt="..." src="images/<slug>/<name>.png" />, with a real Russian alt text and a caption in the style the chapters already use. When the image is narrower than 1024 px, give its real width so it is not upscaled.
    - CLI output and config go in code blocks, not pictures. Every fact shown in an image is also in the text.
    - Give the existing alt="image" images real alt texts. Propose replacements for them, don't make them.
-4. Verify with three independent subagents: (a) fidelity to the transcript; (b) technical accuracy against the slides (names, syntax, defaults, numbers); (c) completeness and consistency with other chapters. Give each one the file paths, transcript ranges and slide numbers, not your conclusions. Apply what you can confirm; list what you can't.
-5. Run transcript/validate.py. Realign only this chapter's tables.
+4. Verify with three independent subagents: (a) fidelity to the transcript; (b) technical accuracy against the slides (names, syntax, defaults, numbers); (c) completeness and consistency with other chapters, including every other chapter you changed. Give each one the file paths, transcript ranges and slide numbers, not your conclusions. Apply what you can confirm; list what you can't.
+5. Run transcript/validate.py. Realign this chapter's tables and any table you changed elsewhere, nothing more.
 6. Report the changes, open questions and new images. Give a git add command with exact paths (docs/, README.md, chapters/ as touched; never -A, transcript/ or .claude/). Don't commit. Update memory: mark the chapter done in the current revision's status note, remove the follow-ups you fixed from tspu-docs-followups, and add new ones there.
 
 Rules: chapters, image file names, alt texts and captions never mention the lecture, lecturer, slides, timestamps or recording, and chapters never mirror the lecture's structure. Keep the Russian typography of the existing chapters (« » quotes, em dashes).

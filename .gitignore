@@ -1,3 +1,4 @@
 /tspu.txt
 .codegraph/
 __pycache__/
+.env
