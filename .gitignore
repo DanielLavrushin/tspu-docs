@@ -2,3 +2,4 @@
 .codegraph/
 __pycache__/
 .env
+.claude/worktrees/
