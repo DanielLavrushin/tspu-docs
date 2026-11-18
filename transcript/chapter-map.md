@@ -16,6 +16,8 @@ How to read it:
 - **Leads.** Discrepancies found while building this map that are not in the follow-up queue yet. "(seen)" means the slide was checked at full size for this map. Re-read the cited slide before changing a chapter.
 - **Existing alt="image" images.** Each chapter session writes real alt texts for the images in its chapter, and a caption where one is missing. The validator warns until then and `--strict` fails on any left. Only replacing such an image is a proposal.
 - **Changes from other sessions.** A fix that another chapter's session makes in this chapter is recorded at the end of the chapter's section.
+- **Research.** Items from transcript/research/findings-2026-10-28.md and findings-2026-11-18.md queued for the chapter's session (picked 2026-11-18): claims the newer public sources date or contradict. Read the cited findings sections; apply high-confidence items only, as dated notes (the style is in the /revise-chapter skill); leave the design description as it is. Material that needs a new section waits for the post-2021 chapter below.
+- **Research fixes, 2026-11-18.** Four corrections applied ahead of the sessions (CPU names; the Silicom/domestic-bypass paragraph; the lecture leak and the scale in chapter 21, with overview.md:16); each chapter's «Changes from other sessions» lists them.
 - **Image pass, 2026-11-18.** Slide images now live in docs/imgs/<slug>/ (validate.py and the /revise-chapter skill were switched from docs/images/). That pass added images to chapters 4, 7, 11, 12, 21 and 22, removed some ASCII diagrams and inserted captions, so file:line references in chapters 4, 7, 11, 12, 20, 21 and 22 written before that date have shifted; each chapter's «Changes from other sessions» lists what moved and the current lines.
 
 At the end: coverage gaps, organisational stretches, boundary corrections against the memory map, and recurring recognition errors.
@@ -31,6 +33,7 @@ A chapter session adds a new numbered section, removes one or renumbers sections
 | A number for «## Общий порядок настройки балансировщика» (balancer-config.md:460), or folding it into the chapter's introduction | Editorial; the validator warns about the unnumbered `##`. If it gets a number, it and 8.10 need an order | proposed, awaiting approval |
 | 9.8 «Bypass watchdog (GL Sun)» | 5:18:30–5:19:30 and slide 130: `show ecofilter-balancer bypass-watchdog-groups`, `state connected` / `disconnected`; now an unnumbered sub-heading in 9.7 | proposed, awaiting approval |
 | 23.9 «Обращение в техподдержку» | 3:34:09–3:35:28 (the S/N from `show version` in every request) and 3:44:31–3:48:11 (escalate when tables pass 20 %, mbufs keep shrinking or CPU reaches 80–90 %). The agenda item on slide 001 was never presented | proposed, awaiting approval |
+| A chapter on how the system developed after 2021 (working title «Развитие системы после 2021 года») | The research findings with no home in the design chapters: the new legal base and enforcement (ПП 1333, ПП 1667, order 25, КоАП 13.42.1 fines), ЦМУ ССОП, mobile whitelists, НСДИ, the VPN-blocking campaign, НСПА anti-DDoS on ТСПУ, measured blocking methods. The design chapters keep short dated notes and link to it | agreed in principle by the user 2026-11-18; not written yet. Number, part and title to settle when it is written (appending a chapter keeps the numbering) |
 | Remove 16.6 «IPv6 в пуле», move its material to 15.4, renumber 16.7 → 16.6 | 3:09:59–3:11:00 and slide 070: `/ipv6` is its own section; the pool listing on slide 069 has no IPv6 block | proposed, awaiting approval |
 
 Not new sections, so no approval needed: 14.10 already exists and gets the unused `protocol_log` block; additions to 4.3.1 and 22.9 (FlowSpec), 7.5 (connection settings), 8.1 (command tables and tree), 11.4 (log ports, IPMI), 15.2 (`alg`, `udp_inbound_refresh`), 17.1 (`shortlist`), 18.12 (log format), 19.3 (`copy hwinfo`), 20.4 (log values) and 21.4 (components); headings corrected to the slides' command names. The queued 22.4 dedupe keeps the numbering if 22.4 becomes a short overview with links; merging it away would renumber 22.5–22.10 and needs approval. Chapters 24 and 25 are already planned.
@@ -63,7 +66,12 @@ Leads
 
 - overview.md:16 expands ЦСУО as «центральная система управления»; slide 003 has «Централизованная система управления оборудованием».
 
-Changes from other sessions: Image pass 2026-11-18: real alt texts for the three alt="image" images (overview.md:18, 60, 134); captions unchanged. The [editorial] alt-text item is done.
+Research (R1 = findings-2026-10-28.md, R2 = findings-2026-11-18.md; «…» = the findings heading)
+
+- 1.2 (overview.md:24) names only 90-ФЗ and the 2020 participants. The base is now ПП 1333 (replaced ПП 126 from 2025-09-01), ПП 1667 (replaced ПП 127 from 2026-03-01) and RKN order 25 (replaced order 228, 2024); ЦМУ ССОП inside ФГУП «ГРЧЦ» runs ТСПУ and is never named [R1 «1.2 Law 90-ФЗ», «1.1 Who runs the centre»; R2 «1.1 Who runs the centre», «1.2 Law»]. High (primary texts). 21.5 now names ИС «ЦМУ ССОП» (research fixes): settle which chapter holds the organisation and link from the other.
+- 1.3 (overview.md:47) «ТСПУ тип А… используется практически везде» holds for traffic, not operators: RKN's own note gives 493 of 1,981 operators connected [R1 «1.3 Type A is used practically everywhere»]. Medium.
+
+Changes from other sessions: Image pass 2026-11-18: real alt texts for the three alt="image" images (overview.md:18, 60, 134); captions unchanged. The [editorial] alt-text item is done. Research fixes 2026-11-18: overview.md:16, the scale sentence is in the past tense («На этапе развёртывания федерального проекта ЦСУ обслуживала…»), adds «позднее число ТСПУ значительно выросло» and links to 21.3 (central-management.md#213-масштаб), the home of the figures.
 
 ### 2. Прохождение трафика через ТСПУ · docs/traffic-flow.md
 
@@ -156,6 +164,10 @@ Leads
 - Slide 027 tables: IPv4+port, IPv4, IPv6+port, IPv6, IPv4/IPv6+mask+port, port-redirect; group names filter-group and ecofilter N. 4.3.1 folds the mask into IPv4+port.
 - The design and scaling answers (1:31:47–1:35:02: jumper capacity, the LAG rule, design inputs, the «EHW or not» field in the balancer design template) have no section. Proposed as 4.8 «Проектирование эшелона», awaiting approval (see the top), plus items for 24.
 
+Research (R1 = findings-2026-10-28.md, R2 = findings-2026-11-18.md; «…» = the findings heading)
+
+- 4.1 (echelon.md:11) «устанавливается у большинства операторов»: as for overview 1.3 [R1 «4.1 Type A is installed at most operators»]. Medium. The 2026 НСПА quote «эшелон защиты при помощи ТСПУ» is an anti-DDoS layer, not type B [R2 «4.1–4.2»]: don't cite it here.
+
 Changes from other sessions: Image pass 2026-11-18: alt text and caption for the slide-022 image at echelon.md:13. Added slide 023 (docs/imgs/echelon/type-b-site.png) at echelon.md:57 in 4.3, and slide 027 (docs/imgs/echelon/packet-path-ecohighway.png) at echelon.md:137 in 4.4.2, replacing the ASCII diagram with P41/P42/P91/P92 (that follow-up is done); the rightmost WAN label P9-2 was retouched to P9-1 [t 1:31:27]. The chapter is at the cap of 3 images. The 4.3.1 table was aligned with the image: the mask moved out of «IPv4 адрес + порт» into a new row «IPv4/IPv6 + маска + порт» [slide 027; t 1:21:15, which also names the whitelist table, so that row stays]. The 022 caption also notes that some core-attached clients have their own internet exit past Border (the image shows it). The filter-side labels on 027 (p4-4, p3-3, p2-2, p2-1) also look misprinted; they were left as they are and the caption does not name them.
 
 ## Part II. Байпас и балансировщик
@@ -191,7 +203,12 @@ Leads
 
 - 4:33:53 «…для пилотного проекта на Урале, для будущего федерального проекта» most likely means «…а не для будущего федерального» (compare 5:18:32 and slide 124).
 
-Changes from other sessions: none yet.
+Changes from other sessions: Research fixes 2026-11-18: 5.6 (bypass.md:238) «с 2022 года Silicom прекратил техническую поддержку…» → Silicom's 2023 annual report says it stopped working with sanctioned countries, no date given [R1 «5.2 / 5.6»]; «С 2023 года также тестируются…» → ГРЧЦ (June 2024): supplied since 2023, on several hundred nodes [R1 «5.6 Domestic bypass»]. The SP100G4M paragraph is unchanged.
+
+Research (R1 = findings-2026-10-28.md, R2 = findings-2026-11-18.md)
+
+- bypass.md:242 «Ранее установленные байпасы Silicom и GL Sun при этом остаются в эксплуатации» is undated present tense with no public source: date it or drop it.
+- 5.5 fail-open in practice (22–23 March 2026) and ПП 1667 п. 36 [R1 «5.5», R2 «5.5»]: the operator procedure goes to 23.7, the rest to the post-2021 chapter.
 
 ### 6. Балансировщик: принцип работы · docs/balancer.md
 
@@ -306,7 +323,7 @@ Leads
 
 - Slides 116–117: the command tables (operational: `configure`, `show`, `exit`, `help`, `call`, `edit`; configuration: `set`, `delete`, `show`, `exit`, `apply`, `end`, `up`, `edit`, `help`, `reset`, `save`, `delfile`, `loadfile`, `merge`, `op`, `dir`) and the root branches `ntp`, `ports`, `ecofilter-balancer`, `mng-if`, `tacacs`. 8.1 covers only the two modes, and NTP and TACACS on the balancer appear nowhere (8.10 is proposed at the top, awaiting approval).
 
-Changes from other sessions: none yet.
+Changes from other sessions: Research fixes 2026-11-18: the 8.5.2 core table (balancer-config.md:269–273) names the CPUs from slides 035 and 036 (E5-2695 v4, E5-2699 v4, Gold 6212U); the first column «Модель фильтра» → «Процессор фильтра» (its cells were CPUs); table realigned.
 
 ### 9. Балансировщик: мониторинг и диагностика · docs/balancer-monitoring.md
 
@@ -393,7 +410,7 @@ Follow-ups
 - [editorial] The 11.1 heading «EcoFilter 2020/2040» vs the table rows «EcoFilter 20 / 40» (filter-platform.md:7, 13–14). The slides say 2020/2040 [slides 033, 034; t 1:47:47].
 - Models 3060 and 5200, 100GE only on the 5200 [vendor-only; t 0:09:21: no 100G on the project's filters].
 - «EcoFilter на платформе EcoSGE» [slides 039, 065; the CLI prompt `EcoSGE:`].
-- Xeon Gold 6212U, not 6212 (filter-platform.md:63, 67, 73; balancer-config.md:273) [slides 036, 119]. The 2019 CPUs are E5-2695 v4 / E5-2699 v4, with DDR4-2666 ECC [slide 035].
+- Xeon Gold 6212U, not 6212 (filter-platform.md:63, 67, 73; balancer-config.md:273) [slides 036, 119]. The 2019 CPUs are E5-2695 v4 / E5-2699 v4, with DDR4-2666 ECC [slide 035]. Done 2026-11-18 (research fixes), except DDR4-2666 ECC, which the chapter does not mention yet.
 - The 8.5.2 core table (18/22/24 → 17/21/23) [slide 119; the core counts from 035/036].
 - (found in the check) 11.2 «все модели… вентиляторы, заменяемые на горячую» [contradicted in part: slide 034 gives hot-swap cooling only to the 4080/4120/4160].
 
@@ -405,7 +422,8 @@ Leads
 - 11.6 (filter-platform.md:138) says QoS where slide 039 has EcoQoE.
 - The log ports te17–te20, the front labels SFP1–SFP4, and the rule that the IPMI port carries no logs (4:22:29–4:27:00) are missing.
 
-Changes from other sessions: Image pass 2026-11-18: slide 037 rear (docs/imgs/filter-platform/rear-panel-2019.jpg) at filter-platform.md:55 in 11.3.1, with line 53 corrected: the 8–16 SFP+ traffic ports are on the front, the two copper log ports on the rear [slide 035 «2 x LOG … – сзади» and photo; t 1:50:11, 1:52:31]; slide 036 front panel only (front-panel-2020.jpg) at :92 in 11.5, replacing the ASCII panel, with SFP1–SFP4 = te17–te20 and LOG/IPMI used for IPMI in the caption [t 4:23:11, 4:25:10] (the te17–te20 lead is covered by the caption only); slide 039 (ecosge-licences.png) at :132 in 11.6, and «QoS» → «мониторинг QoE» at :130 [slide 039]; «маршрутизация» was dropped from that list (the router is a separate product line, t 1:53:54, and no licence on slide 039). The chapter is at the cap of 3 images. Still open: 11.4.1 «Gold 6212», 11.1 «EcoFilter 20/40», «all models hot-swap fans».
+Changes from other sessions: Image pass 2026-11-18: slide 037 rear (docs/imgs/filter-platform/rear-panel-2019.jpg) at filter-platform.md:55 in 11.3.1, with line 53 corrected: the 8–16 SFP+ traffic ports are on the front, the two copper log ports on the rear [slide 035 «2 x LOG … – сзади» and photo; t 1:50:11, 1:52:31]; slide 036 front panel only (front-panel-2020.jpg) at :92 in 11.5, replacing the ASCII panel, with SFP1–SFP4 = te17–te20 and LOG/IPMI used for IPMI in the caption [t 4:23:11, 4:25:10] (the te17–te20 lead is covered by the caption only); slide 039 (ecosge-licences.png) at :132 in 11.6, and «QoS» → «мониторинг QoE» at :130 [slide 039]; «маршрутизация» was dropped from that list (the router is a separate product line, t 1:53:54, and no licence on slide 039). The chapter is at the cap of 3 images. Still open: 11.1 «EcoFilter 20/40», «all models hot-swap fans».
+Research fixes 2026-11-18: CPU names corrected from slides 035 and 036: filter-platform.md:47 «Intel Xeon E5-2695 v4» / «E5-2699 v4», :71 «Intel Xeon Gold 6212U» (both cells), :77. The headings 11.3.1 and 11.4.1 carried values; both are now «Основные характеристики» (no links pointed at them). Same names in balancer-config.md:269–273 (chapter 8).
 
 ### 12. Фильтр: сессии и трансляции · docs/filter-sessions.md
 
@@ -430,6 +448,10 @@ Leads
 - Slides 043/044: `show sessions`, `show xlate`, and the keywords `local`, `global`, `remote` (IP), `lap`, `gap`, `rap` (IP:port), `lport`, `gport`, `rport`. The chapter has `show session`, `show xl` (filter-sessions.md:37, 136, 143) and `la/ga/ra` (154–156), and so does README 12.8.
 - Slide 044 pipe options also include `begin`, `drop`, `regexp`, `take`, and the short forms `i` and `c`.
 - The `ssh … "<команда>"` technique applies to the whole CLI; chapter 13 may be its better home.
+
+Research (R1 = findings-2026-10-28.md, R2 = findings-2026-11-18.md; «…» = the findings heading)
+
+- 12.4 (filter-sessions.md:66) «Никакого другого смысла, кроме указания стороны первого пакета, у направления нет» is true of the session field, but measurements show blocking fires only on connections opened from inside Russia [R1 «12.4»]. High. Keep the field description and add a dated note.
 
 Changes from other sessions: Image pass 2026-11-18: slide 040 field diagram (docs/imgs/filter-sessions/nat-fields.png) at filter-sessions.md:37 in 12.2; slide 041 (no-nat-fields.png) at :51 in 12.3, replacing the ASCII with/without-NAT boxes and their made-up addresses. The CLI rows of both slides were cropped out.
 
@@ -578,6 +600,12 @@ Leads
 
 - The `shortlist` section (3:17:07–3:17:41, logging of DPI-list hits) is in no chapter.
 
+Research (R1 = findings-2026-10-28.md, R2 = findings-2026-11-18.md; «…» = the findings heading)
+
+- 17.4.9 (filter-dpi.md:261) QUIC list: in practice all foreign QUIC was dropped from 2022-03-04, later QUIC was blocked by SNI [R1 «17.4.9»]. Dated note.
+- 17.4.3 (filter-dpi.md:171) «whitelist не используется» may still hold for the filter: the 2025 mobile whitelists are prefix-based and the equipment enforcing them is undisclosed [R1 «17.4.3», R2 «17.4.3»]. At most a line telling the two apart; don't say ТСПУ implements them (low confidence).
+- Leave 17.3 (probabilistic drop) and the 307 stub page as equipment descriptions; the measured throttling and caps go to the post-2021 chapter [R1 «17.3», R2 «17.3»].
+
 Changes from other sessions: none yet.
 
 ### 18. Фильтр: мониторинг и диагностика · docs/filter-monitoring.md
@@ -678,7 +706,7 @@ Slides
 
 Follow-ups
 
-- [editorial] central-management.md:91 «на момент проведения лекции»: reword. The content is from 1:43:16.
+- [editorial] central-management.md:91 «на момент проведения лекции»: reword. The content is from 1:43:16. Done 2026-11-18 (research fixes).
 
 Vendor-attributed lines: none.
 
@@ -688,7 +716,12 @@ Leads
 - Slide 030: 18 components (TRFPRC, LCKLOG, TRFLOG, DEVINV, DEVCTL, REGINT, DEVMON, DEVLOG, SMON, SLOG, IM, REPORT, GISMAP, UAAA, BACKUP, CONFIG, NTP, WIKI; the reserve site lacks LCKLOG and TRFLOG) and the gateways IPC-3000F at ЦСУ and IPC-100 at the sites. 21.4 describes five subsystems.
 - Slide 029 names the sites F1 and F2.
 
-Changes from other sessions: Image pass 2026-11-18: slide 029 (docs/imgs/central-management/csu-sites.png; the reserve site's «F1» retouched to F2, as the slide's own bullets say) at central-management.md:14 in 21.1, replacing the ASCII diagram; 21.1 «выделенным каналом связи» → «VPN-каналом через интернет» [slide 029, the traffic between the ЦСУО sites runs through INTERNET; t 1:37:57 «сами площадки между собой также [VPN-]каналом связаны»; overview.md:16 already says VPN]. The lecture leak is now at central-management.md:76. Slide 030 is not used: its text is unreadable at 720p.
+Research (R1 = findings-2026-10-28.md, R2 = findings-2026-11-18.md; «…» = the findings heading)
+
+- 21.5 table (central-management.md:70) «Статус: Активная разработка» for the federal ЦСУ is stale; the paragraphs below it are now in the past tense.
+- Open: how the ЦСУ relates to ИС «ЦМУ ССОП» [R1 «21.5», R2 open questions]; 21.1 two data centres not confirmed publicly [R1 «21.1»]; 21.4 subsystems [R1 «21.4», R2 «21.4»].
+
+Changes from other sessions: Image pass 2026-11-18: slide 029 (docs/imgs/central-management/csu-sites.png; the reserve site's «F1» retouched to F2, as the slide's own bullets say) at central-management.md:14 in 21.1, replacing the ASCII diagram; 21.1 «выделенным каналом связи» → «VPN-каналом через интернет» [slide 029, the traffic between the ЦСУО sites runs through INTERNET; t 1:37:57 «сами площадки между собой также [VPN-]каналом связаны»; overview.md:16 already says VPN]. The lecture leak is now at central-management.md:76. Slide 030 is not used: its text is unreadable at 720p. Research fixes 2026-11-18: 21.3 heading «Масштаб: ~350 площадок, ~5000 устройств» → «Масштаб» (README.md:215 too; no links pointed at the old anchor); «На текущем этапе… обслуживает» → «На этапе развёртывания федерального проекта… обслуживала»; «Предполагается дальнейшее расширение…» replaced by a dated note: more than 1250 ТСПУ (end of 2023) and more than 1400 ТСПУ carrying 132.3 Tbit/s (October 2025, ГРЧЦ), the unit undefined, no device count [R1 «1.1 Scale», R2 «1.1 Scale»]. 21.5: the lecture leak and the months removed, both paragraphs in the past tense, and a dated note that ГРЧЦ put ИС «ЦМУ ССОП» into operation by order of 29.12.2021 № 343 [R1 «21.5»], without equating it with the ЦСУ (medium confidence).
 
 ### 22. Распознавание протоколов и двухстадийная блокировка · docs/protocol-blocking.md
 
@@ -720,6 +753,11 @@ Leads
 
 - «BGP FlowSpec» (slides 024, 025) is in no chapter. Slide 025: the filters send logs to СПФС over UDP and pull the final lists over HTTP.
 - The 22.3 table (protocol-blocking.md:83) says the filter unwraps simple (XOR) obfuscation. That was the asker's premise; the speaker answered «it depends» (4:14:15–4:15:39). The obfuscation named at 4:14:16 is garbled («CMP»).
+
+Research (R1 = findings-2026-10-28.md, R2 = findings-2026-11-18.md; «…» = the findings heading)
+
+- 22.2 (protocol-blocking.md:69) «прямая блокировка… не применяется»: in-session blocking by signature is measured for QUIC (2022), Snowflake, OpenVPN/WireGuard (2023), Shadowsocks/VMess and ECH (2024); address bans are still seen in 2026. Keep the two-stage scheme and add the in-session blocking beside it [R1 «22.2–22.5, 22.10», R2 «22.2–22.5, 22.10»]. Goes with the queued [contradicted in part] follow-up above.
+- The ASCII box at protocol-blocking.md:120 repeats «~350 площадок, ~5000 устройств»: drop the figures (their home is 21.3) and keep the box aligned.
 
 Changes from other sessions: Image pass 2026-11-18: slide 025, diagram only (docs/imgs/protocol-blocking/lists-flow.png; the legend, with its «СЦОС» misprint, cropped out) at protocol-blocking.md:140 in 22.4, after the ASCII stages. Its caption introduces BGP FlowSpec [slides 024, 025]; the text of 4.3.1 and 22.9 still does not name it.
 
@@ -762,6 +800,10 @@ Leads
 
 - No section covers escalating to the vendor (what to send and when: the S/N, tables above 20 %, shrinking mbufs, CPU at 80–90 %). Proposed as 23.9 «Обращение в техподдержку», awaiting approval.
 - The BGP-session example with port 179 (1:27:43) is not in chapter 23.
+
+Research (R1 = findings-2026-10-28.md, R2 = findings-2026-11-18.md; «…» = the findings heading)
+
+- 23.7 (troubleshooting.md:255): ПП 1667 gives operators a formal procedure through the RKN personal account, including п. 36 (stop routing traffic through ТСПУ in defined cases, such as a ТСПУ failure that stops traffic; notice first, RKN reviews within 24 h); ПП 1333 sets the operators' duties [R1 «23.7», «5.5»; R2 «23.7»]. High (primary texts).
 
 Changes from other sessions: none yet.
 
