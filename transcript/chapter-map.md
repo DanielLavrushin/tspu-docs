@@ -16,6 +16,7 @@ How to read it:
 - **Leads.** Discrepancies found while building this map that are not in the follow-up queue yet. "(seen)" means the slide was checked at full size for this map. Re-read the cited slide before changing a chapter.
 - **Existing alt="image" images.** Each chapter session writes real alt texts for the images in its chapter, and a caption where one is missing. The validator warns until then and `--strict` fails on any left. Only replacing such an image is a proposal.
 - **Changes from other sessions.** A fix that another chapter's session makes in this chapter is recorded at the end of the chapter's section.
+- **Image pass, 2026-11-18.** Slide images now live in docs/imgs/<slug>/ (validate.py and the /revise-chapter skill were switched from docs/images/). That pass added images to chapters 4, 7, 11, 12, 21 and 22, removed some ASCII diagrams and inserted captions, so file:line references in chapters 4, 7, 11, 12, 20, 21 and 22 written before that date have shifted; each chapter's «Changes from other sessions» lists what moved and the current lines.
 
 At the end: coverage gaps, organisational stretches, boundary corrections against the memory map, and recurring recognition errors.
 
@@ -62,7 +63,7 @@ Leads
 
 - overview.md:16 expands ЦСУО as «центральная система управления»; slide 003 has «Централизованная система управления оборудованием».
 
-Changes from other sessions: none yet.
+Changes from other sessions: Image pass 2026-11-18: real alt texts for the three alt="image" images (overview.md:18, 60, 134); captions unchanged. The [editorial] alt-text item is done.
 
 ### 2. Прохождение трафика через ТСПУ · docs/traffic-flow.md
 
@@ -96,7 +97,7 @@ Leads
 
 - Slide 009 also says «Один фильтр (либо несколько независимых)»; check that 2.3 says so.
 
-Changes from other sessions: none yet.
+Changes from other sessions: Image pass 2026-11-18: real alt texts for the five alt="image" images (traffic-flow.md:9, 35, 156, 177, 223); captions unchanged. The [editorial] alt-text item is done.
 
 ### 3. Места установки ТСПУ в сети оператора · docs/placement.md
 
@@ -116,7 +117,7 @@ Follow-ups
 
 Vendor-attributed lines: 28 (encapsulations the balancer and filter parse), 36 (L2TP not described), 140 (rule conditions by subnet, tag count, frame type).
 
-Changes from other sessions: none yet.
+Changes from other sessions: Image pass 2026-11-18: real alt texts for the two alt="image" images (placement.md:11, 81); captions unchanged. The [editorial] alt-text item is done.
 
 ### 4. Эшелонированная система (ТСПУ тип Б) · docs/echelon.md
 
@@ -155,7 +156,7 @@ Leads
 - Slide 027 tables: IPv4+port, IPv4, IPv6+port, IPv6, IPv4/IPv6+mask+port, port-redirect; group names filter-group and ecofilter N. 4.3.1 folds the mask into IPv4+port.
 - The design and scaling answers (1:31:47–1:35:02: jumper capacity, the LAG rule, design inputs, the «EHW or not» field in the balancer design template) have no section. Proposed as 4.8 «Проектирование эшелона», awaiting approval (see the top), plus items for 24.
 
-Changes from other sessions: none yet.
+Changes from other sessions: Image pass 2026-11-18: alt text and caption for the slide-022 image at echelon.md:13. Added slide 023 (docs/imgs/echelon/type-b-site.png) at echelon.md:57 in 4.3, and slide 027 (docs/imgs/echelon/packet-path-ecohighway.png) at echelon.md:137 in 4.4.2, replacing the ASCII diagram with P41/P42/P91/P92 (that follow-up is done); the rightmost WAN label P9-2 was retouched to P9-1 [t 1:31:27]. The chapter is at the cap of 3 images. The 4.3.1 table was aligned with the image: the mask moved out of «IPv4 адрес + порт» into a new row «IPv4/IPv6 + маска + порт» [slide 027; t 1:21:15, which also names the whitelist table, so that row stays]. The 022 caption also notes that some core-attached clients have their own internet exit past Border (the image shows it). The filter-side labels on 027 (p4-4, p3-3, p2-2, p2-1) also look misprinted; they were left as they are and the caption does not name them.
 
 ## Part II. Байпас и балансировщик
 
@@ -266,7 +267,7 @@ Leads
 - Slide 115: serial 9600 (38400) baud, 8N1, no flow control; SSH port 22; admin/admin. 7.5 has only the login and the speed guessing.
 - 4:39:11 «…через этот USB, через мониторинг, а они напрямую с чипа Tofino» most likely means «…а не напрямую»: transceiver data reach the CLI over USB-UART (slide 114: QSFP28 → USB-UART → USB hub). The chapter's diagram lacks the USB hub, USB-UART, power controller and sensors.
 
-Changes from other sessions: none yet.
+Changes from other sessions: Image pass 2026-11-18: slide 111 photos only (docs/imgs/balancer-platform/front-panels.jpg; the spec blocks and the text line between the photos removed) at balancer-platform.md:20 in 7.1; slide 112 breakout cable and QSFP+ PSM transceiver (breakout-cable-qsfp-psm.jpg; the DAC photo is cut off on the slide and was left out) at :66 in 7.3; slide 114 (internal-scheme.png; «Toffino» retouched to Tofino, the cut-off legend «RS232/CO…» to RS232) at :76 in 7.4, replacing the ASCII diagram. The chapter is at the cap of 3 images. The 111 caption sidesteps the 64/65 question (ports 1–64 plus a separate connector top left); the 114 caption names UART MUX with «Console MUX» in brackets. Tofino was added to the 7.4.4 (Ethernet switch) and 7.4.5 (console MUX) lists [slide 114]. Still open in the prose: 7.4 omits the USB hub, USB-UART, power controller and sensors (all in the caption now).
 
 ### 8. Балансировщик: конфигурация · docs/balancer-config.md
 
@@ -404,7 +405,7 @@ Leads
 - 11.6 (filter-platform.md:138) says QoS where slide 039 has EcoQoE.
 - The log ports te17–te20, the front labels SFP1–SFP4, and the rule that the IPMI port carries no logs (4:22:29–4:27:00) are missing.
 
-Changes from other sessions: none yet.
+Changes from other sessions: Image pass 2026-11-18: slide 037 rear (docs/imgs/filter-platform/rear-panel-2019.jpg) at filter-platform.md:55 in 11.3.1, with line 53 corrected: the 8–16 SFP+ traffic ports are on the front, the two copper log ports on the rear [slide 035 «2 x LOG … – сзади» and photo; t 1:50:11, 1:52:31]; slide 036 front panel only (front-panel-2020.jpg) at :92 in 11.5, replacing the ASCII panel, with SFP1–SFP4 = te17–te20 and LOG/IPMI used for IPMI in the caption [t 4:23:11, 4:25:10] (the te17–te20 lead is covered by the caption only); slide 039 (ecosge-licences.png) at :132 in 11.6, and «QoS» → «мониторинг QoE» at :130 [slide 039]; «маршрутизация» was dropped from that list (the router is a separate product line, t 1:53:54, and no licence on slide 039). The chapter is at the cap of 3 images. Still open: 11.4.1 «Gold 6212», 11.1 «EcoFilter 20/40», «all models hot-swap fans».
 
 ### 12. Фильтр: сессии и трансляции · docs/filter-sessions.md
 
@@ -430,7 +431,7 @@ Leads
 - Slide 044 pipe options also include `begin`, `drop`, `regexp`, `take`, and the short forms `i` and `c`.
 - The `ssh … "<команда>"` technique applies to the whole CLI; chapter 13 may be its better home.
 
-Changes from other sessions: none yet.
+Changes from other sessions: Image pass 2026-11-18: slide 040 field diagram (docs/imgs/filter-sessions/nat-fields.png) at filter-sessions.md:37 in 12.2; slide 041 (no-nat-fields.png) at :51 in 12.3, replacing the ASCII with/without-NAT boxes and their made-up addresses. The CLI rows of both slides were cropped out.
 
 ### 13. Фильтр: первоначальная настройка и CLI · docs/filter-cli.md
 
@@ -661,7 +662,7 @@ Leads (slide 020, seen)
 - 20.2 (management-segment.md:42–58) gives .231–.235 to «SPFS (management + IPMI)» and .241–.245 to СПХД. The slide has .231–.235 СПФС mng, .241–.245 СПФС ipmi, and СПХД at .129 (mng) and .130 (ipmi).
 - 20.4 lacks the slide's log values (172.31.255.0/24; filters .1–.20, СПФС .201–.210, «Континент» .254), and the speaker's caveat that this part of the slide may be wrong.
 
-Changes from other sessions: none yet.
+Changes from other sessions: Image pass 2026-11-18: alt text and caption for the slide-020 image at management-segment.md:11 (the [editorial] item is done; the user's image still shows the slide-number badge and a pointer, replacing it is a proposal). 20.2 corrected per the lead: .129/.130 СПХД management/IPMI, .231–.235 SPFS management, .241–.245 SPFS IPMI [slide 020; t 0:59:18], in the ASCII table and the bullets; the СПХД addresses are marked «уточняются при проектировании» [t 1:00:03: not sure of them]. Still open: the 20.4 log values; the caption mentions the log subnet only as «на схеме — 172.31.255.0/24».
 
 ### 21. Центральная система управления (ЦСУ) · docs/central-management.md
 
@@ -687,7 +688,7 @@ Leads
 - Slide 030: 18 components (TRFPRC, LCKLOG, TRFLOG, DEVINV, DEVCTL, REGINT, DEVMON, DEVLOG, SMON, SLOG, IM, REPORT, GISMAP, UAAA, BACKUP, CONFIG, NTP, WIKI; the reserve site lacks LCKLOG and TRFLOG) and the gateways IPC-3000F at ЦСУ and IPC-100 at the sites. 21.4 describes five subsystems.
 - Slide 029 names the sites F1 and F2.
 
-Changes from other sessions: none yet.
+Changes from other sessions: Image pass 2026-11-18: slide 029 (docs/imgs/central-management/csu-sites.png; the reserve site's «F1» retouched to F2, as the slide's own bullets say) at central-management.md:14 in 21.1, replacing the ASCII diagram; 21.1 «выделенным каналом связи» → «VPN-каналом через интернет» [slide 029, the traffic between the ЦСУО sites runs through INTERNET; t 1:37:57 «сами площадки между собой также [VPN-]каналом связаны»; overview.md:16 already says VPN]. The lecture leak is now at central-management.md:76. Slide 030 is not used: its text is unreadable at 720p.
 
 ### 22. Распознавание протоколов и двухстадийная блокировка · docs/protocol-blocking.md
 
@@ -720,7 +721,7 @@ Leads
 - «BGP FlowSpec» (slides 024, 025) is in no chapter. Slide 025: the filters send logs to СПФС over UDP and pull the final lists over HTTP.
 - The 22.3 table (protocol-blocking.md:83) says the filter unwraps simple (XOR) obfuscation. That was the asker's premise; the speaker answered «it depends» (4:14:15–4:15:39). The obfuscation named at 4:14:16 is garbled («CMP»).
 
-Changes from other sessions: none yet.
+Changes from other sessions: Image pass 2026-11-18: slide 025, diagram only (docs/imgs/protocol-blocking/lists-flow.png; the legend, with its «СЦОС» misprint, cropped out) at protocol-blocking.md:140 in 22.4, after the ASCII stages. Its caption introduces BGP FlowSpec [slides 024, 025]; the text of 4.3.1 and 22.9 still does not name it.
 
 ## Part V. Эксплуатация
 
@@ -785,13 +786,12 @@ Changes from other sessions: none yet.
 
 | Slide | Content | Proposed home |
 |---|---|---|
-| 024, 025 | «BGP FlowSpec» | 4.3.1; 22.9 |
+| 024, 025 | «BGP FlowSpec» (025 is now an image in 22.4, and its caption names FlowSpec) | 4.3.1; 22.9 |
 | 030 | 18 ЦСУО components; IPC-3000F / IPC-100 | 21.4 |
 | 050 | `copy hwinfo` (not spoken) | 19.3 |
 | 085 | Log record format and levels | 18.12 |
 | 115 | Balancer connection settings | 7.5 |
 | 116, 117 | Balancer CLI tables and tree | 8.1 |
-| 023 | Type-B site topology ★ | 4.3 |
 | 001 | Agenda (the lecture plan) | none: chapters don't mirror the lecture |
 | 002, 021, 028, 032, 110 | Section titles with device photos | none; 033 and 111 have better photos |
 | 031, 089, 109, 131, 132 | «Вопросы?» | none |
