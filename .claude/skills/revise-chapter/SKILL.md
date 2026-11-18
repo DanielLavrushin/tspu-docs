@@ -23,10 +23,12 @@ Steps
 2. Fix wrong facts, add missing ones, remove invented claims. Keep the chapter's structure and the approved writing rules (one home per fact, headings name topics, neutral version notes).
    - When a fix also applies to other chapters, make it there too. Search docs/ and README.md for every place the wrong fact, name or number appears and fix them all. Add or remove material in another chapter when you know it belongs there: a fact lives in its home chapter, and other chapters link to it instead of repeating it.
    - Verify each change in another chapter against the slides or transcript, as for your own chapter, and record it under that chapter in transcript/chapter-map.md so its own session knows. List every cross-chapter change in your report.
-3. Images: at most 3 per chapter, only where a picture explains more than text (topologies, packet paths, hardware).
-   - Crop the slide to its content: no slide-number badge, no black side bars. Use ffmpeg (`-vf crop=w:h:x:y`) or Pillow through `uv run --no-project --with pillow python -I`. Open the result to check the crop.
-   - Save as docs/images/<slug>/<descriptive-name>.png (JPEG for photos), under about 300 KB.
-   - Embed like the existing images: <img width="1024" alt="..." src="images/<slug>/<name>.png" />, with a real Russian alt text and a caption in the style the chapters already use. When the image is narrower than 1024 px, give its real width so it is not upscaled.
+3. Images: at most 3 per chapter, counting the ones already there, only where a picture explains more than text (topologies, packet paths, hardware). transcript/chapter-map.md lists the images each chapter already has; add yours there.
+   - Crop the slide to its content: no slide-number badge, no black side bars, no mouse pointer (crop it out or patch it). Use photocraft (`image.crop`, then export); if it is not in the session, ffmpeg (`-vf crop=w:h:x:y`) or Pillow through `uv run --no-project --with pillow python -I`. Open the result to check the crop.
+   - Fix a misprint on a slide only when the correct value is certain, and name the fix in your report.
+   - Save as docs/imgs/<slug>/<descriptive-name>.png (JPEG for photos), under about 300 KB.
+   - Embed like the existing images: <img width="1024" alt="..." src="imgs/<slug>/<name>.png" />, with a real Russian alt text and a caption in the style the chapters already use. When the image is narrower than 1024 px, give its real width so it is not upscaled.
+   - An ASCII diagram of the same subject goes when the image replaces it, provided every fact it held is still in the prose.
    - CLI output and config go in code blocks, not pictures. Every fact shown in an image is also in the text.
    - Give the existing alt="image" images real alt texts. Propose replacements for them, don't make them.
 4. Verify with three independent subagents: (a) fidelity to the transcript; (b) technical accuracy against the slides (names, syntax, defaults, numbers); (c) completeness and consistency with other chapters, including every other chapter you changed. Give each one the file paths, transcript ranges and slide numbers, not your conclusions. Apply what you can confirm; list what you can't.

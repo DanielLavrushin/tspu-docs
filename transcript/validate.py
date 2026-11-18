@@ -16,7 +16,7 @@ Reads README.md, docs/*.md and the stubs in chapters/*.md, and reports:
            (a plain mention of YouTube is only a warning: it may be about the service)
   images   image files exist; alt texts are real; alt texts, captions and file
            names never mention the lecture. Warnings: no caption, file over 300 KB,
-           width attribute larger than the picture, unused file in docs/images/,
+           width attribute larger than the picture, unused file in docs/imgs/,
            and missing or placeholder alt texts on the existing remote (GitHub
            attachment) images; their chapter sessions write real ones, so none are
            left by the final pass (only replacing such an image is a proposal).
@@ -47,7 +47,7 @@ from urllib.parse import unquote
 ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 STUBS = ROOT / "chapters"
-IMAGES = DOCS / "images"
+IMAGES = DOCS / "imgs"
 README = ROOT / "README.md"
 
 LECTURE = re.compile(
